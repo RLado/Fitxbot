@@ -1,0 +1,12 @@
+[Unit]
+Description=Auto clock in/out bot for IQS Cezzane
+After=network.target
+After=dhcpcd.service
+
+[Service]
+Type=simple
+ExecStart=/opt/Fitxbot/run_bot.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
