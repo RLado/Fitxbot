@@ -15,6 +15,10 @@ def clock_in(user,passwd,timeout=15):
     browser=webdriver.Firefox(executable_path='./geckodriver',options=ffopt)
     browser.get(url)
 
+    #Wait for page to load
+    element_present=EC.presence_of_element_located((By.XPATH,'//button[@type="submit"]'))
+    webdriver.support.ui.WebDriverWait(browser,timeout).until(element_present)
+
     #Write username and password
     browser.find_element_by_id('Username').clear()
     browser.find_element_by_id('Username').send_keys(user)
@@ -29,6 +33,11 @@ def clock_in(user,passwd,timeout=15):
 
     #Click on the clock in button
     browser.find_element_by_xpath('//*[@title="Haz clic para registrar tu Clock In"]').click()
+    
+    #Wait for page to load
+    element_present=EC.presence_of_element_located((By.XPATH,'(//button[@type="button"])[2]'))
+    webdriver.support.ui.WebDriverWait(browser,timeout).until(element_present)
+    
     #Confirm
     browser.find_element_by_xpath('(//button[@type="button"])[2]').click()
 
@@ -48,6 +57,10 @@ def clock_out(user,passwd,timeout=15):
     browser=webdriver.Firefox(executable_path='./geckodriver',options=ffopt)
     browser.get(url)
 
+    #Wait for page to load
+    element_present=EC.presence_of_element_located((By.XPATH,'//button[@type="submit"]'))
+    webdriver.support.ui.WebDriverWait(browser,timeout).until(element_present)
+
     #Write username and password
     browser.find_element_by_id('Username').clear()
     browser.find_element_by_id('Username').send_keys(user)
@@ -62,6 +75,11 @@ def clock_out(user,passwd,timeout=15):
 
     #Click on the clock in button
     browser.find_element_by_xpath('//*[@title="Haz clic para el Clock Out"]').click()
+
+    #Wait for page to load
+    element_present=EC.presence_of_element_located((By.XPATH,'(//button[@type="button"])[2]'))
+    webdriver.support.ui.WebDriverWait(browser,timeout).until(element_present)
+
     #Confirm
     browser.find_element_by_xpath('(//button[@type="button"])[2]').click()
 
