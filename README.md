@@ -5,7 +5,7 @@ This bot is intended to be run on a raspberry pi or any other linux system. To d
 
 Alternatively if you want to run the bot only once you can:
 ```bash
-python3 python3 autofb.py -c <your config>.ini > /var/log/fitxbot_<your name>.log
+python3 autofb.py -c <your config>.ini > /var/log/fitxbot_<your name>.log
 ```
 
 ### Setup
